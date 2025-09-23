@@ -123,10 +123,11 @@ To run the Python analysis notebook, follow these steps:
 ## Dashboard Snapshots
 
 **Summary Dashboard**
-![Summary Dashboard](Summary.png)
+![Summary Dashboard](Images/Summary.png)
 
 **Overview Dashboard**
-![Overview Dashboard](Overview.png)
+![Overview Dashboard](Images/Overview.png)
 
 ## Conclusion
+
 This project provides a 360-degree view of the bank's loan portfolio. The Python notebook offers a granular, reproducible analysis of the data, while the Power BI dashboard delivers actionable, high-level insights to stakeholders, enabling better risk assessment and strategic planning.
