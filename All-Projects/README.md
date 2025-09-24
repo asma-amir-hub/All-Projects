@@ -13,7 +13,7 @@ The Octagon Oracle is not just a data dashboard; it's an end-to-end machine lear
 
 ## 🔮 Live Demo & Showcase
 
-> **Note:** The final application will be demonstrated here. Replace the image below with a live GIF of the running application for maximum impact.
+> **Note:** The final application will be demonstrated here.
 
 ![Live Demo GIF](frontend/assets/demo.gif)
 
