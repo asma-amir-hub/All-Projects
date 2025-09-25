@@ -1,0 +1,291 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.6), 0 0 40px rgba(245, 158, 11, 0.3); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slideUp {
+  animation: slideUp 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-slideDown {
+  animation: slideDown 1s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Glass Morphism Effects */
+.glass-container {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.glass-button:hover::before {
+  left: 100%;
+}
+
+.premium-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  box-shadow: 
+    0 8px 25px rgba(245, 158, 11, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.premium-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.premium-button:hover::before {
+  left: 100%;
+}
+
+.premium-button:active {
+  transform: scale(0.98);
+}
+
+/* 3D Card Effects */
+.car-card-3d {
+  perspective: 1000px;
+}
+
+.car-card-3d .glass-container {
+  transform-style: preserve-3d;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.car-card-3d:hover .glass-container {
+  transform: rotateY(5deg) rotateX(5deg) translateZ(20px);
+}
+
+.service-card-3d, .stat-card-3d, .value-card-3d, .contact-card-3d {
+  perspective: 1000px;
+}
+
+.service-card-3d .glass-container,
+.stat-card-3d .glass-stat-card,
+.value-card-3d .glass-container,
+.contact-card-3d .glass-container {
+  transform-style: preserve-3d;
+  transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.service-card-3d:hover .glass-container,
+.stat-card-3d:hover .glass-stat-card,
+.value-card-3d:hover .glass-container,
+.contact-card-3d:hover .glass-container {
+  transform: rotateY(3deg) rotateX(3deg) translateZ(10px);
+}
+
+/* Floating Label Animation */
+.floating-label-container {
+  position: relative;
+}
+
+.floating-input:focus + .floating-label,
+.floating-label-container.active .floating-label {
+  transform: translateY(-28px) scale(0.85);
+  color: #f59e0b;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0 8px;
+  border-radius: 4px;
+}
+
+.floating-label {
+  transition: all 0.3s ease;
+}
+
+.floating-input:focus {
+  outline: none;
+  border-color: #f59e0b;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #f59e0b, #d97706);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d97706, #b45309);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .car-card-3d:hover .glass-container,
+  .service-card-3d:hover .glass-container,
+  .stat-card-3d:hover .glass-stat-card,
+  .value-card-3d:hover .glass-container,
+  .contact-card-3d:hover .glass-container {
+    transform: translateZ(5px);
+  }
+}
+
+/* Enhanced Backdrop Blur Support */
+@supports (backdrop-filter: blur(20px)) {
+  .glass-container {
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  .glass-button {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+@supports not (backdrop-filter: blur(20px)) {
+  .glass-container {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .glass-button {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Loading States */
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Focus Visible for Accessibility */
+.glass-button:focus-visible,
+.premium-button:focus-visible,
+.floating-input:focus-visible {
+  outline: 2px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .glass-container {
+    background: rgba(0, 0, 0, 0.9);
+    border-color: #ffffff;
+  }
+  
+  .text-gray-400 {
+    color: #cccccc;
+  }
+  
+  .text-gray-300 {
+    color: #ffffff;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
